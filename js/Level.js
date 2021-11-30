@@ -13,7 +13,7 @@ class Level {
         if (typeof type == "string") {
           return type;
         }
-        this.startActors.push(type.create(new PosXY(x, y), ch));
+        this.startActors.push(type.create(new Position(x, y), ch));
         return EMPTY;
       });
     });

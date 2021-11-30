@@ -6,7 +6,7 @@ class Coin {
     this.swing = swing;
   }
   static create(pos) {
-    let basePos = pos.plus(new PosXY(0.2, 0.1));
+    let basePos = pos.plus(new Position(0.2, 0.1));
     return new Coin(basePos, basePos, 0);
   }
   get type() {
@@ -14,7 +14,7 @@ class Coin {
   }
 }
 // initial size
-Coin.prototype.size = new PosXY(0.5, 0.5);
+Coin.prototype.size = new Position(0.5, 0.5);
 // check if actor caught
 Coin.prototype.collide = function(state) {
   let filtered = state.actors.filter(e => e !== this);
@@ -29,7 +29,7 @@ Coin.prototype.update = function(time) {
   let swing = this.swing + time * SWING_SPEED;
   let swingPos = Math.sin(swing) * SWING_DIST;
   return new Coin(
-      this.basePos.plus(new PosXY(0, swingPos)),
+      this.basePos.plus(new Position(0, swingPos)),
       this.basePos, swing
   );
 };

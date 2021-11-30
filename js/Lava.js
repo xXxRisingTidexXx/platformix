@@ -6,9 +6,9 @@ class Lava {
   }
   static create(pos, ch) {
     if (ch === "=") {
-      return new Lava(pos, new PosXY(2, 0));
+      return new Lava(pos, new Position(2, 0));
     } else if (ch === "v") {
-      return new Lava(pos, new PosXY(0, 3), pos);
+      return new Lava(pos, new Position(0, 3), pos);
     }
   }
   get type() {
@@ -16,7 +16,7 @@ class Lava {
   }
 }
 // initial size
-Lava.prototype.size = new PosXY(1, 1);
+Lava.prototype.size = new Position(1, 1);
 // if actor got
 Lava.prototype.collide = function(state) {
   return new State(state.level, state.actors, LOST);

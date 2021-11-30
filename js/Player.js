@@ -4,14 +4,14 @@ class Player {
     this.speed = speed;
   }
   static create(pos) {
-    return new Player(pos.plus(new PosXY(0, -0.5)), new PosXY(0, 0));
+    return new Player(pos.plus(new Position(0, -0.5)), new Position(0, 0));
   }
   get type() {
     return PLAYER;
   }
 }
 // initial size
-Player.prototype.size = new PosXY(0.8, 1);
+Player.prototype.size = new Position(0.8, 1);
 // updating movement
 Player.prototype.update = function(time, state, keys) {
   let xSpeed = 0;
@@ -22,12 +22,12 @@ Player.prototype.update = function(time, state, keys) {
     xSpeed += PLAYER_X_SPEED;
   }
   let pos = this.pos;
-  let movedX = pos.plus(new PosXY(xSpeed * time, 0));
+  let movedX = pos.plus(new Position(xSpeed * time, 0));
   if (!state.level.touches(movedX, this.size, WALL)) {
     pos = movedX;
   }
   let ySpeed = this.speed.y + time * GRAVITY;
-  let movedY = pos.plus(new PosXY(0, ySpeed * time));
+  let movedY = pos.plus(new Position(0, ySpeed * time));
   if (!state.level.touches(movedY, this.size, WALL)) {
     pos = movedY;
   } else if (keys.ArrowUp && ySpeed > 0) {
@@ -35,5 +35,5 @@ Player.prototype.update = function(time, state, keys) {
   } else {
     ySpeed = 0;
   }
-  return new Player(pos, new PosXY(xSpeed, ySpeed));
+  return new Player(pos, new Position(xSpeed, ySpeed));
 };
