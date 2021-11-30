@@ -1,0 +1,29 @@
+.background {
+  background-color: #E8F8F5;
+  table-layout: fixed;
+  border-spacing: 0;
+}
+.background td {
+  padding: 0;
+}
+.actor {
+  position: absolute;
+}
+.lava {
+  background-color: #E74C3C;
+}
+.wall {
+  background-color: black;
+}
+.coin {
+  background-color: #F5B041;
+}
+.player {
+  background-color: #17A589;
+}
+.lost .player {
+  background-color: #7B241C;
+}
+.won .player {
+  background-color: #117864;
+}
