@@ -1,2 +1,3 @@
 # platformix
-A one more Platformer game implementation
+
+A one more Platformer game implementation.
