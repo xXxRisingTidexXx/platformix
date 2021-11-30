@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="../css/index.css"/>
+  <title>Platformer</title>
+</head>
+<body>
+<div class="modal fade bd-example-modal-sm" id="modal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+    <div class="modal-content text-center">
+      <div class="modal-header">
+        <h4 class="modal-title w-100">You won!!!</h4>
+      </div>
+      <div class="modal-body">
+        <p class="modal-title text-center">Are you want to restart?</p>
+      </div>
+      <div class="modal-footer">
+        <button id="close" type="button" class="btn btn-dark"
+                onclick="audioPlayer('https://www.zapsplat.com/wp-content/uploads/2015/sound-effects-sound-ex-machina/sound_ex_machina_Button_Click.mp3');runGame(LEVELS, DomDraw)" data-dismiss="modal">
+          Yes
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<!-- Bootstrap -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="../js/keys.js"></script>
+<script src="../js/PosXY.js"></script>
+<script src="../js/Player.js"></script>
+<script src="../js/Coin.js"></script>
+<script src="../js/Lava.js"></script>
+<script src="../js/consts.js"></script>
+<script src="../js/draw.js"></script>
+<script src="../js/Level.js"></script>
+<script src="../js/levels.js"></script>
+<script src="../js/State.js"></script>
+<script src="../js/DomDraw.js"></script>
+<script src="../js/runner.js"></script>
+
+<script>runGame(LEVELS, DomDraw);</script>
+</body>
+</html>
