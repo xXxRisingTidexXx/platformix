@@ -1,20 +1,26 @@
+// Актор, яким керує людина. Мусить зібрати всі монетки на всіх рівнях, аби гра була пройдена.
 class Player {
+  // Ініціалізація в точці із потенційною швидкістю руху.
   constructor(pos, speed) {
     this.pos = pos;
     this.speed = speed;
   }
 
+  // Створення гравця із заданими габаритами.
   static create(pos) {
     return new Player(pos.plus(new Position(0, -0.5)), new Position(0, 0));
   }
 
+  // Повертає тип сутності.
   get type() {
     return PLAYER;
   }
 }
 
+// Стандартний розмір об'єкта.
 Player.prototype.size = new Position(0.8, 1);
 
+// Перемалювання внаслідок натискання стрілочок на клавіатурі.
 Player.prototype.update = function (time, state, keys) {
   let xSpeed = 0;
   if (keys.ArrowLeft) {

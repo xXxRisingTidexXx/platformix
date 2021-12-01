@@ -1,3 +1,4 @@
+// Змушує браузер вловлювати натискання стрілочок для рухів.
 function trackKeys(keys) {
   let down = Object.create(null);
 

@@ -1,4 +1,6 @@
+// Обгортка над цілим ігровим рівнем. Відповідальна за утримання гравця в рамках.
 class Level {
+  // Ініціалізація рівня з рядкової розмітки.
   constructor(plan) {
     let rows = plan.trim().split("\n").map(e => [...e]);
     this.height = rows.length;
@@ -17,6 +19,7 @@ class Level {
   }
 }
 
+// Перевірка заданої сутності на дотикання до меж рівня.
 Level.prototype.touches = function (pos, size, type) {
   let xStart = Math.floor(pos.x);
   let xEnd = Math.ceil(pos.x + size.x);

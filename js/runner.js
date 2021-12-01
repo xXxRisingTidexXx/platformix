@@ -1,3 +1,4 @@
+// Тригер чергового рівня, який відмальовується у вказаному вузлі.
 function runLevel(level, Display) {
   let display = new Display(document.body, level);
   let state = State.start(level);
@@ -20,6 +21,7 @@ function runLevel(level, Display) {
   });
 }
 
+// Корутина, що покладає відлік ігорвій сесії.
 async function runGame(plans, drawing) {
   for (let i = 0; i < plans.length;) {
     let status = await runLevel(new Level(plans[i]), drawing);
@@ -32,6 +34,7 @@ async function runGame(plans, drawing) {
   $('#modal').modal('show');
 }
 
+// Перемальовувач чергового кадру гри, що сприяє усім анімаціям.
 function runAnimation(frameFunc) {
   let lastTime = null;
 
@@ -49,6 +52,7 @@ function runAnimation(frameFunc) {
   requestAnimationFrame(frame);
 }
 
+// Програє звуковий ефект з незначною затримкою.
 function audioPlayerInterval(url) {
   let audio = new Audio(url);
   audio.loop = true;
@@ -56,10 +60,12 @@ function audioPlayerInterval(url) {
   setTimeout(() => audio.pause(), 1500);
 }
 
+// Програє заданий за посиланням у мережі звук один раз.
 function audioPlayer(url) {
   new Audio(url).play();
 }
 
+// Повторний запуск гри після проходження.
 async function reRunGame(plans, drawing) {
   audioPlayer(CLICK_URL);
   await runGame(plans, drawing);

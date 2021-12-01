@@ -1,3 +1,4 @@
+// Створює DOM-представлення об'єкту з атрибутами та дочірніми вузлами.
 function elt(name, attrs, ...children) {
   let dom = document.createElement(name);
   for (let attr of Object.keys(attrs)) {
@@ -9,6 +10,7 @@ function elt(name, attrs, ...children) {
   return dom;
 }
 
+// Зображує ігрове поле у вигляді таблиці.
 function drawGrid(level) {
   return elt("table", {
     class: "background",
@@ -19,6 +21,7 @@ function drawGrid(level) {
   ));
 }
 
+// Відмальовує черговий ігровий об'єкт у вигляді div-блоку.
 function drawActors(actors) {
   return elt(DIV, {}, ...actors.map(actor => {
     let rect = elt(DIV, {class: `actor ${actor.type}`});
@@ -30,6 +33,7 @@ function drawActors(actors) {
   }));
 }
 
+// Перевіряє, чи є накладання в заданих прямокутників.
 function overlap(a1, a2) {
   return a1.pos.x + a1.size.x > a2.pos.x &&
     a1.pos.x < a2.pos.x + a2.size.x &&
