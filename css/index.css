@@ -1,5 +1,5 @@
 .background {
-  background-color: #E8F8F5;
+  background-color: #202040;
   table-layout: fixed;
   border-spacing: 0;
 }
@@ -10,13 +10,13 @@
   position: absolute;
 }
 .lava {
-  background-color: #E74C3C;
+  background-color: #FF6363;
 }
 .wall {
-  background-color: black;
+  background-color: #543864;
 }
 .coin {
-  background-color: #F5B041;
+  background-color: #FFBD69;
 }
 .player {
   background-color: #17A589;
