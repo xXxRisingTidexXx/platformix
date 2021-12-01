@@ -1,4 +1,3 @@
-// operations with game elements
 function elt(name, attrs, ...children) {
   let dom = document.createElement(name);
   for (let attr of Object.keys(attrs)) {
@@ -9,17 +8,17 @@ function elt(name, attrs, ...children) {
   }
   return dom;
 }
-// drawing a grid for the positions of game elements
+
 function drawGrid(level) {
   return elt("table", {
     class: "background",
     style: `width: ${level.width * SCALE}${SIZE_UNITS}`
   }, ...level.rows.map(row =>
-      elt("tr", {style: `height: ${SCALE}${SIZE_UNITS}`},
-          ...row.map(type => elt("td", {class: type})))
+    elt("tr", {style: `height: ${SCALE}${SIZE_UNITS}`},
+      ...row.map(type => elt("td", {class: type})))
   ));
 }
-// drawing of game elements
+
 function drawActors(actors) {
   return elt(DIV, {}, ...actors.map(actor => {
     let rect = elt(DIV, {class: `actor ${actor.type}`});
@@ -30,10 +29,10 @@ function drawActors(actors) {
     return rect;
   }));
 }
-// check if objects intersect
+
 function overlap(a1, a2) {
   return a1.pos.x + a1.size.x > a2.pos.x &&
-      a1.pos.x < a2.pos.x + a2.size.x &&
-      a1.pos.y + a1.size.y > a2.pos.y &&
-      a1.pos.y < a2.pos.y + a2.size.y;
+    a1.pos.x < a2.pos.x + a2.size.x &&
+    a1.pos.y + a1.size.y > a2.pos.y &&
+    a1.pos.y < a2.pos.y + a2.size.y;
 }

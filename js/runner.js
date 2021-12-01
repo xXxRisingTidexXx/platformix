@@ -19,6 +19,7 @@ function runLevel(level, Display) {
     });
   });
 }
+
 async function runGame(plans, drawing) {
   for (let i = 0; i < plans.length;) {
     let status = await runLevel(new Level(plans[i]), drawing);
@@ -30,8 +31,10 @@ async function runGame(plans, drawing) {
   audioPlayer("https://www.zapsplat.com/wp-content/uploads/2015/sound-effects-epic-stock-media/esm_8_bit_small_win_arcade_80s_simple_alert_notification_game.mp3");
   $('#modal').modal('show');
 }
+
 function runAnimation(frameFunc) {
   let lastTime = null;
+
   function frame(time) {
     if (lastTime != null) {
       let timeStep = Math.min(time - lastTime, 100) / 1000;
@@ -42,15 +45,17 @@ function runAnimation(frameFunc) {
     lastTime = time;
     requestAnimationFrame(frame);
   }
+
   requestAnimationFrame(frame);
 }
-// play the first 1.5 seconds of audio
+
 function audioPlayerInterval(path) {
   let audio = new Audio(path);
   audio.loop = true;
   audio.play();
   setTimeout(() => audio.pause(), 1500);
 }
+
 function audioPlayer(path) {
   new Audio(path).play();
 }
