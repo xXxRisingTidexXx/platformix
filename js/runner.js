@@ -59,3 +59,8 @@ function audioPlayerInterval(path) {
 function audioPlayer(path) {
   new Audio(path).play();
 }
+
+async function reRunGame(plans, drawing) {
+  audioPlayer('https://www.zapsplat.com/wp-content/uploads/2015/sound-effects-sound-ex-machina/sound_ex_machina_Button_Click.mp3');
+  await runGame(plans, drawing);
+}
