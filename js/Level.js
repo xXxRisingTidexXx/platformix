@@ -1,12 +1,9 @@
 class Level {
   constructor(plan) {
-    let rows = plan.trim()
-      .split("\n")
-      .map(e => [...e]);
+    let rows = plan.trim().split("\n").map(e => [...e]);
     this.height = rows.length;
     this.width = rows[0].length;
     this.startActors = [];
-
     this.rows = rows.map((row, y) => {
       return row.map((ch, x) => {
         let type = SUPPORTED_CHARS[ch];
@@ -19,13 +16,12 @@ class Level {
     });
   }
 }
-// if crossing
-Level.prototype.touches = function(pos, size, type) {
+
+Level.prototype.touches = function (pos, size, type) {
   let xStart = Math.floor(pos.x);
   let xEnd = Math.ceil(pos.x + size.x);
   let yStart = Math.floor(pos.y);
   let yEnd = Math.ceil(pos.y + size.y);
-
   for (let y = yStart; y < yEnd; y++) {
     for (let x = xStart; x < xEnd; x++) {
       let isOutside = x < 0 || x >= this.width || y < 0 || y >= this.height;

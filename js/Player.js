@@ -3,17 +3,19 @@ class Player {
     this.pos = pos;
     this.speed = speed;
   }
+
   static create(pos) {
     return new Player(pos.plus(new Position(0, -0.5)), new Position(0, 0));
   }
+
   get type() {
     return PLAYER;
   }
 }
-// initial size
+
 Player.prototype.size = new Position(0.8, 1);
-// updating movement
-Player.prototype.update = function(time, state, keys) {
+
+Player.prototype.update = function (time, state, keys) {
   let xSpeed = 0;
   if (keys.ArrowLeft) {
     xSpeed -= PLAYER_X_SPEED;

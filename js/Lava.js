@@ -4,6 +4,7 @@ class Lava {
     this.speed = speed;
     this.resetPos = resetPos;
   }
+
   static create(pos, ch) {
     if (ch === "=") {
       return new Lava(pos, new Position(2, 0));
@@ -11,18 +12,19 @@ class Lava {
       return new Lava(pos, new Position(0, 3), pos);
     }
   }
+
   get type() {
     return LAVA;
   }
 }
-// initial size
+
 Lava.prototype.size = new Position(1, 1);
-// if actor got
-Lava.prototype.collide = function(state) {
+
+Lava.prototype.collide = function (state) {
   return new State(state.level, state.actors, LOST);
 };
-// updating movement
-Lava.prototype.update = function(time, state) {
+
+Lava.prototype.update = function (time, state) {
   let newPos = this.pos.plus(this.speed.times(time));
   if (!state.level.touches(newPos, this.size, WALL)) {
     return new Lava(newPos, this.speed, this.resetPos);
