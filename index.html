@@ -19,7 +19,7 @@
             </div>
             <div class="modal-footer">
                 <button id="close" type="button" class="btn btn-dark"
-                        onclick="audioPlayer('https://www.zapsplat.com/wp-content/uploads/2015/sound-effects-sound-ex-machina/sound_ex_machina_Button_Click.mp3');runGame(LEVELS, DomDraw)"
+                        onclick="audioPlayer('https://www.zapsplat.com/wp-content/uploads/2015/sound-effects-sound-ex-machina/sound_ex_machina_Button_Click.mp3');runGame(LEVELS, Canvas)"
                         data-dismiss="modal">
                     Yes
                 </button>
@@ -40,8 +40,8 @@
 <script src="js/Level.js"></script>
 <script src="js/levels.js"></script>
 <script src="js/State.js"></script>
-<script src="js/DomDraw.js"></script>
+<script src="js/Canvas.js"></script>
 <script src="js/runner.js"></script>
-<script>runGame(LEVELS, DomDraw);</script>
+<script>runGame(LEVELS, Canvas);</script>
 </body>
 </html>

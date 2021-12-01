@@ -1,15 +1,16 @@
-// items display
-class DomDraw {
+class Canvas {
   constructor(parent, level) {
     this.dom = elt(DIV, {class: "game"}, drawGrid(level));
     this.actorLayer = null;
     parent.appendChild(this.dom);
   }
+
   clear() {
     this.dom.remove();
   }
 }
-DomDraw.prototype.syncState = function(state) {
+
+Canvas.prototype.syncState = function (state) {
   if (this.actorLayer) {
     this.actorLayer.remove();
   }
