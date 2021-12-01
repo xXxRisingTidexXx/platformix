@@ -22,7 +22,7 @@ State.prototype.update = function (time, keys) {
     return newState;
   }
   if (this.level.touches(player.pos, player.size, LAVA)) {
-    audioPlayerInterval("https://www.zapsplat.com/wp-content/uploads/2015/sound-effects-14566/zapsplat_nature_lava_flow_17940.mp3");
+    audioPlayerInterval(LAVA_URL);
     return new State(this.level, actors, LOST);
   }
   for (let actor of actors) {

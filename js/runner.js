@@ -24,11 +24,11 @@ async function runGame(plans, drawing) {
   for (let i = 0; i < plans.length;) {
     let status = await runLevel(new Level(plans[i]), drawing);
     if (status === WON) {
-      audioPlayerInterval("https://www.zapsplat.com/wp-content/uploads/2015/sound-effects-35448/zapsplat_multimedia_game_sound_coins_collect_several_at_once_001_40812.mp3");
+      audioPlayerInterval(LEVEL_URL);
       i++;
     }
   }
-  audioPlayer("https://www.zapsplat.com/wp-content/uploads/2015/sound-effects-epic-stock-media/esm_8_bit_small_win_arcade_80s_simple_alert_notification_game.mp3");
+  audioPlayer(COMPLETION_URL);
   $('#modal').modal('show');
 }
 
@@ -49,18 +49,18 @@ function runAnimation(frameFunc) {
   requestAnimationFrame(frame);
 }
 
-function audioPlayerInterval(path) {
-  let audio = new Audio(path);
+function audioPlayerInterval(url) {
+  let audio = new Audio(url);
   audio.loop = true;
   audio.play();
   setTimeout(() => audio.pause(), 1500);
 }
 
-function audioPlayer(path) {
-  new Audio(path).play();
+function audioPlayer(url) {
+  new Audio(url).play();
 }
 
 async function reRunGame(plans, drawing) {
-  audioPlayer('https://www.zapsplat.com/wp-content/uploads/2015/sound-effects-sound-ex-machina/sound_ex_machina_Button_Click.mp3');
+  audioPlayer(CLICK_URL);
   await runGame(plans, drawing);
 }
